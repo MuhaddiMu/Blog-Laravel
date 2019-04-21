@@ -78,18 +78,25 @@
 			<div class="box registerBox wthree">
 				<span class="reg_bg"></span>
 				<h3>Register</h3>
-				<form class="form" action="#" method="post">
+				@include('layouts/errors')
+				<form method="POST" action="{{ route('register') }}" class="form">
+					@csrf
 					<div class="f_row-2">
-						<input type="text" class="input-field" placeholder="Username" name="name" required>
+						<input type="text" class="input-field" placeholder="Name" name="name" required>
+					</div>
+					<div class="f_row-2">
+						<input type="email" class="input-field" placeholder="Email" name="email" required>
 					</div>
 					<div class="f_row-2 last">
 						<input type="password" name="password" placeholder="Password" id="password1" class="input-field" required>
 					</div>
 					<div class="f_row-2 last">
-						<input type="password" name="password" placeholder="Confirm Password" id="password2" class="input-field" required>
+						<input type="password" name="password_confirmation" placeholder="Confirm Password" id="password2" class="input-field" required>
 					</div>
 					<input class="submit-w3" type="submit" value="Register">
 				</form>
+
+				
 			</div>
 			<a href="#" class="regTag icon-add">
 				<i class="fa fa-repeat" aria-hidden="true"></i>

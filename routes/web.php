@@ -11,10 +11,10 @@
 |
 */
 
+Auth::routes();
+
 Route::get('/Laravel', function () {
     return view('welcome');
 });
-
-Auth::routes();
 
 Route::get('/', 'PagesController@Index');
