@@ -18,6 +18,11 @@ class LoginController extends Controller
     |
     */
 
+    public function decayMinutes()
+    {
+        return property_exists($this, 'decayMinutes') ? $this->decayMinutes : 15;
+    }
+
     public function showLoginForm()
     {
         return redirect('/');
