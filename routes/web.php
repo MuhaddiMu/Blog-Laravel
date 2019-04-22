@@ -13,8 +13,6 @@
 
 Auth::routes();
 
-Route::get('/Laravel', function () {
-    return view('home');
-})->middleware('auth');
+Route::get('/Laravel', 'HomeController@index')->middleware('auth');
 
 Route::get('/', 'PagesController@Index')->middleware('guest');
