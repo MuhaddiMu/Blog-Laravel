@@ -18,9 +18,9 @@
 	<!-- Meta tag Keywords -->
 
 	<!-- css files -->
-	<link rel="stylesheet" href="{{asset('login/css/style.css')}}" type="text/css" media="all" />
+	<link rel="stylesheet" href="{{asset('LoginAssets/css/style.css')}}" type="text/css" media="all" />
 	<!-- Style-CSS -->
-	<link href="{{asset('login/css/font-awesome.min.css')}}" rel="stylesheet">
+	<link href="{{asset('LoginAssets/css/font-awesome.min.css')}}" rel="stylesheet">
 	<!-- Font-Awesome-Icons-CSS -->
 	<!-- //css files -->
 	<!-- web-fonts -->
@@ -41,13 +41,21 @@
 			<div class="box boxShaddow"></div>
 			<div class="box loginBox">
 				<h3>Login Here</h3>
-				<form class="form" action="#" method="post">
+				@if($errors->any())
+						<div class="isa_error">
+							<i class="fa fa-times-circle"></i>
+							@include('layouts/errors')
+						</div>
+					 @endif
+				<form action="{{ route('login') }}" method="POST" class="form">
+					@csrf
 					<div class="f_row-2">
-						<input type="text" class="input-field" placeholder="Username" name="name" required>
+						<input type="text" class="input-field" placeholder="Email" name="email" required>
 					</div>
 					<div class="f_row-2 last">
 						<input type="password" name="password" placeholder="Password" class="input-field" required>
 					</div>
+					<input type="checkbox" name="remember"> <span>{{ __('Remember Me') }}</span>
 					<input class="submit-w3" type="submit" value="Login">
 					<div class="f_link">
 						<a href="" class="resetTag">Forgot your password?</a>
@@ -78,7 +86,12 @@
 			<div class="box registerBox wthree">
 				<span class="reg_bg"></span>
 				<h3>Register</h3>
-				@include('layouts/errors')
+				@if($errors->any())
+						<div class="isa_error">
+							<i class="fa fa-times-circle"></i>
+							@include('layouts/errors')
+						</div>
+					 @endif
 				<form method="POST" action="{{ route('register') }}" class="form">
 					@csrf
 					<div class="f_row-2">
@@ -109,10 +122,10 @@
 
 	<!-- js files -->
 	<!-- Jquery -->
-	<script src="{{asset('login/js/jquery-2.2.3.min.js')}}"></script>
+	<script src="{{asset('LoginAssets/js/jquery-2.2.3.min.js')}}"></script>
 	<!-- //Jquery -->
 	<!-- input fields js -->
-	<script src="{{asset('login/js/input-field.js')}}"></script>
+	<script src="{{asset('LoginAssets/js/input-field.js')}}"></script>
 	<!-- //input fields js -->
 
 	<!-- password-script -->

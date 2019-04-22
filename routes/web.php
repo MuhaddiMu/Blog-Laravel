@@ -17,4 +17,4 @@ Route::get('/Laravel', function () {
     return view('welcome');
 });
 
-Route::get('/', 'PagesController@Index');
+Route::get('/', 'PagesController@Index')->middleware('guest');
