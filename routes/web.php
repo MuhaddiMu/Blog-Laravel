@@ -19,4 +19,10 @@ Route::get('/', 'PagesController@Index')->middleware('guest');
 
 Route::group(array('prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => 'administrator'), function(){
     Route::get('/Users', 'UsersController@index');
+
+    Route::get('Roles', 'RolesController@Index');
+    Route::get('Roles/Create', 'RolesController@Create');
+    Route::post('Roles/Create', 'RolesController@Store');
 });
+
+
