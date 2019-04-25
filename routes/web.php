@@ -18,11 +18,18 @@ Route::get('/Laravel', 'HomeController@index')->middleware('auth');
 Route::get('/', 'PagesController@Index')->middleware('guest');
 
 Route::group(array('prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => 'administrator'), function(){
+    
     Route::get('/Users', 'UsersController@index');
-
+    
     Route::get('Roles', 'RolesController@Index');
+    
     Route::get('Roles/Create', 'RolesController@Create');
+    
     Route::post('Roles/Create', 'RolesController@Store');
+    
+    Route::get('Roles/{ID}/Edit', 'UsersController@Edit');
+    
+    Route::post('Roles/{ID}/Edit', 'UsersController@Update');
 });
 
 

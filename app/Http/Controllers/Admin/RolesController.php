@@ -29,9 +29,7 @@ class RolesController extends Controller
     }
 
     public function Index(){
-
         $Roles = Role::all();
         return view('Admin/Roles/Roles')->with('Roles', $Roles);
-
     }
 }

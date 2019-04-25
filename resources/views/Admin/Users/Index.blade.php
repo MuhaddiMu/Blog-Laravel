@@ -32,7 +32,7 @@
 						@foreach ($Users as $User)
 							<tr>
 								<th>{{$User->id}}</th>
-								<th>{{$User->name}}</th>
+								<th><a href="/admin/Roles/{{$User->id }}/Edit" >{{$User->name}}</a></th>
 								<th>{{$User->email}}</th>
 								<th>{{$User->created_at}}</th>
 							</tr>

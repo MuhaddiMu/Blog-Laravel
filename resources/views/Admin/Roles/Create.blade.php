@@ -8,6 +8,13 @@
                 <div class="card-header">Create User Role</div>
 
                 <div class="card-body">
+
+                    @if ($errors->any())
+                        <div class="alert alert-danger">
+                            @include('layouts/errors')
+                        </div>
+                    @endif
+                    
                     @if (session('status'))
                         <div class="alert alert-success" role="alert">
                             {{ session('status') }}
