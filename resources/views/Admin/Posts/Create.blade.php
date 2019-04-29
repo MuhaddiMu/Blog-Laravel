@@ -27,9 +27,16 @@
 						<div class="form-group">
 							<label for="Textarea">Post Content:</label>
 							<textarea name="Textarea" id="Textarea" cols="30" rows="10" class="form-control"></textarea>
-						</div>
+                        </div>
+                        
+                        <select name="Category" class="form-control">
+                            @foreach ($Categories as $Category)
+                            <option value="{{$Category->id}}">{{$Category->name}}</option>                                
+                            @endforeach
 
-						<button type="submit" class="btn btn-primary">Post</button>
+                        </select>
+
+						<button type="submit" class="mt-3 btn btn-primary">Post</button>
 						
 					</form>
                     

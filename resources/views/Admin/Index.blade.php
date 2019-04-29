@@ -14,18 +14,23 @@
                         </div>
                     @endif
 
-					<h3>Manage Users</h3>
+					<h4>Manage Users</h4>
 					<a href="/admin/Users" class="btn btn-primary">All Users</a>
 					<hr>
 
-					<h3>Manage Roles</h3>
+					<h4>Manage Roles</h4>
 					<a href="/admin/Roles" class="btn btn-primary">All Roles</a>
 					<a href="/admin/Roles/Create" class="btn btn-primary">Add New Role</a>
 					<hr>
 
-					<h3>Manage Posts</h3>
+					<h4>Manage Posts</h4>
 					<a href="/admin/Posts" class="btn btn-primary">All Posts</a>
 					<a href="/admin/Posts/Create" class="btn btn-primary">New Post</a>
+                    <hr>
+                    
+                    <h4>Manage Categories</h4>
+					<a href="/admin/Categories" class="btn btn-primary">All Categories</a>
+					<a href="/admin/Categories/create" class="btn btn-primary">New Category</a>
 					<hr>
 				  
 					

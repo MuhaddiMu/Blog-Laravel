@@ -5,11 +5,9 @@ namespace App\Http\Controllers\Admin;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Category;
-use App\Post;
-use Illuminate\Support\Str;
-use Illuminate\Support\Facades\Auth;
+use App\Http\Requests\CategoryFormRequest;
 
-class PostsController extends Controller
+class CategoriesController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -18,7 +16,9 @@ class PostsController extends Controller
      */
     public function index()
     {
-        
+        $Categories  = Category::all();
+
+        return view('Admin/Category/Index')->with('Categories', $Categories);        
     }
 
     /**
@@ -28,9 +28,7 @@ class PostsController extends Controller
      */
     public function create()
     {
-        $Categories = Category::all();
-        return view('Admin/Posts/Create', compact('Categories'));
-
+        return view('Admin/Category/Create');
     }
 
     /**
@@ -39,9 +37,19 @@ class PostsController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(CategoryFormRequest $request)
     {
-        //
+
+        $this->validate($request, [
+            'Name' => 'required|min:3',
+        ]);
+
+        $Category = new category;
+        $Category->name = $request->input('Name');
+        $Category->save();
+
+        return redirect('/admin/Categories/create')->with('status', 'A New Category Has Been Created');
+
     }
 
     /**
