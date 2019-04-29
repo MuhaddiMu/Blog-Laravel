@@ -61,6 +61,15 @@
                                         {{ __('Logout') }}
                                     </a>
 
+                                    @if (Auth::check())
+                                        @role('Admin')
+                                            <a class="dropdown-item" href="/admin">
+                                                {{ __('Admin Panel') }}
+                                            </a>
+                                        @endrole
+                                        
+                                    @endif
+
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                                         @csrf
                                     </form>
