@@ -25,8 +25,8 @@
 						</div>
 						
 						<div class="form-group">
-							<label for="Textarea">Post Content:</label>
-							<textarea name="Textarea" id="Textarea" cols="30" rows="10" class="form-control"></textarea>
+							<label for="Content">Post Content:</label>
+							<textarea name="Content" id="Content" cols="30" rows="10" class="form-control"></textarea>
                         </div>
                         
                         <select name="Category" class="form-control">

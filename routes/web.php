@@ -25,6 +25,8 @@ Route::group(array('prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => 
     
     Route::resource('Posts', 'PostsController');
 
+    Route::POST('Posts/create', 'PostsController@store');
+
     Route::get('/', 'PagesController@AdminIndex');
     
     Route::get('/Users', 'UsersController@index');

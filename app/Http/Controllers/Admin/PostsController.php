@@ -8,6 +8,7 @@ use App\Category;
 use App\Post;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Auth;
+use App\Http\Requests\PostFormRequest;
 
 class PostsController extends Controller
 {
@@ -39,9 +40,25 @@ class PostsController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(PostFormRequest $request)
     {
-        //
+        $this->validate($request, [
+            'Title' => 'required',
+            'Content' => 'required',
+            'Category' => 'required',
+        ]);
+
+        $User_id = Auth::user()->id;
+        $Post = new Post;
+        $Post->title = $request->input('Title');
+        $Post->content = Str::slug($request->input('Title'), '-');
+        $Post->slug = $request->input('Content');
+        $Post->user_id = $User_id;
+
+        $Post->save();
+        $Post->categories()->sync($request->get('categories)'));
+
+        return redirect('admin/Posts/create')->with('status', 'The post has been created');
     }
 
     /**
