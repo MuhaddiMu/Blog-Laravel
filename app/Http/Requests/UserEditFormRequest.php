@@ -27,6 +27,7 @@ class UserEditFormRequest extends FormRequest
                 'Name' => 'required', 
                 'Email'=> 'required', 
                 'Role'=> 'required',
+                'password' => 'sometimes|confirmed|min:6',
         ];
     }
 }
