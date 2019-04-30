@@ -10,7 +10,7 @@
                 <div class="card-body">
 
 					@if ($Categories->isEmpty())
-						<p>There are no Users</p>
+						<p>There are no Categories</p>
 
 					@else
 

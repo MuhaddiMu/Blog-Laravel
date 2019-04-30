@@ -8,6 +8,13 @@
                 <div class="card-header">Create New Post</div>
 
                 <div class="card-body">
+
+                    @if ($errors->any())
+                        <div class="alert alert-danger">
+                            @include('layouts/errors')
+                        </div>
+                    @endif
+
                     @if (session('status'))
                         <div class="alert alert-success" role="alert">
                             {{ session('status') }}
@@ -30,8 +37,9 @@
                         </div>
                         
                         <select name="Category" class="form-control">
+                            <option selected disabled>Select Category</option>                                
                             @foreach ($Categories as $Category)
-                            <option value="{{$Category->id}}">{{$Category->name}}</option>                                
+                               <option value="{{$Category->id}}">{{$Category->name}}</option>                                
                             @endforeach
 
                         </select>

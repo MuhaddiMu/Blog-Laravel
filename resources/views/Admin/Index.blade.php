@@ -25,7 +25,7 @@
 
 					<h4>Manage Posts</h4>
 					<a href="/admin/Posts" class="btn btn-primary">All Posts</a>
-					<a href="/admin/Posts/Create" class="btn btn-primary">New Post</a>
+					<a href="/admin/Posts/create" class="btn btn-primary">New Post</a>
                     <hr>
                     
                     <h4>Manage Categories</h4>

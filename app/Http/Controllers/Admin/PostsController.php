@@ -19,6 +19,12 @@ class PostsController extends Controller
      */
     public function index()
     {
+
+        $Posts = Post::all();
+
+        $Categories = Category::all();
+
+        return view('Admin/Posts/Index', compact('Posts', 'Categories'));
         
     }
 
@@ -51,12 +57,12 @@ class PostsController extends Controller
         $User_id = Auth::user()->id;
         $Post = new Post;
         $Post->title = $request->input('Title');
-        $Post->content = Str::slug($request->input('Title'), '-');
-        $Post->slug = $request->input('Content');
+        $Post->content = $request->input('Content');
+        $Post->slug = Str::slug($request->input('Title'), '-');
         $Post->user_id = $User_id;
+        $Post->category_id = $request->input('Category');
 
         $Post->save();
-        $Post->categories()->sync($request->get('categories)'));
 
         return redirect('admin/Posts/create')->with('status', 'The post has been created');
     }
