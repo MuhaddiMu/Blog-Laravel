@@ -8,6 +8,7 @@ use App\Category;
 use App\Post;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Auth;
+use App\Http\Requests\PostEditFormRequest;
 use App\Http\Requests\PostFormRequest;
 
 class PostsController extends Controller
@@ -71,7 +72,7 @@ class PostsController extends Controller
      */
     public function show($id)
     {
-        //
+
     }
 
     /**
@@ -82,7 +83,10 @@ class PostsController extends Controller
      */
     public function edit($id)
     {
-        //
+        $Categories = Category::all();
+        $Post = Post::with('category')->whereId($id)->first();
+
+        return view('Admin/Posts/Edit', compact('Post', 'Categories'));
     }
 
     /**
@@ -92,9 +96,16 @@ class PostsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(PostEditFormRequest $request, $id)
     {
-        //
+        $Post = Post::whereId($id)->first();
+        $Post->title  = $request->input('Title');
+        $Post->content  = $request->input('Content');
+        $Post->slug = Str::slug($request->input('Title'), '-');
+        $Post->category_id = $request->input('Category');
+        $Post->save();
+
+        return redirect(action([PostsController::class, 'edit'], $Post->id) )->with('status', 'Post has been updated');
     }
 
     /**

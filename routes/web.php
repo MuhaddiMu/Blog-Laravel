@@ -27,6 +27,8 @@ Route::group(array('prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => 
 
     Route::POST('Posts/create', 'PostsController@store');
 
+    Route::POST('Posts/{id}/edit', 'PostsController@update');
+
     Route::get('/', 'PagesController@AdminIndex');
     
     Route::get('/Users', 'UsersController@index');
