@@ -21,7 +21,7 @@
 					@endif
 					
 					@foreach ($Posts as $Post)
-						<h3>{{$Post->title}} <span class="badge badge-primary">{{ CatView($Post->id) }}</span></h3>	
+					<h3>{{$Post->title}} <span class="badge badge-primary">{{$Post->category->name}}</span></h3>	
 						<p>{{str_limit($Post->content, 300)}}</p>
 						<hr>
 					@endforeach
