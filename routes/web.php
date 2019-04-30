@@ -17,6 +17,8 @@ Route::get('/Laravel', 'HomeController@index')->middleware('auth');
 
 Route::get('/', 'PagesController@Index')->middleware('guest');
 
+Route::resource('Blog', 'BlogController');
+
 Route::group(array('prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => 'administrator'), function(){
 
     Route::resource('Categories', 'CategoriesController');

@@ -10,7 +10,7 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">Posts</div>
+                <div class="card-header">{{$Post->title}}</div>
 
                 <div class="card-body">
 
@@ -20,13 +20,8 @@
                         </div>
 					@endif
 					
-					@foreach ($Posts as $Post)
-					<h3><a href="/Blog/{{$Post->slug}}">{{$Post->title}}</a> <span class="badge badge-primary">{{$Post->category->name}}</span></h3>	
-						<p>{{str_limit($Post->content, 300)}}</p>
-						<hr>
-					@endforeach
-					
-                    
+					<h3>{{$Post->title}}</a> <span class="badge badge-primary">{{$Post->category->name}}</span></h3>	
+						<p>{{$Post->content}}</p>
                 </div>
             </div>
         </div>
