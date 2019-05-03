@@ -50,7 +50,8 @@ class BlogController extends Controller
     public function show($slug)
     {
         $Post = Post::with('category')->whereSlug($slug)->first();
-        return view('Admin/Posts/Single', compact('Post'));
+        $Comments = $Post->Comments()->get();
+        return view('Admin/Posts/Single', compact('Post', 'Comments'));
     }
 
     /**

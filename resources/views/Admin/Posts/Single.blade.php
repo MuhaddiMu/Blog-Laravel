@@ -34,7 +34,10 @@
                         
                         <hr>
 
-                        <p><b>Person Says: </b> Comment</p>
+                        
+                        @foreach ($Comments as $Comment)
+                            <p><b>{{$Comment->name}} Says: </b> {{$Comment->content}}</p>                            
+                        @endforeach
                 </div>
             </div>
 
