@@ -14,7 +14,8 @@
                         </div>
                     @endif
 
-                    {{ __('main.LoginMsg') }}
+                    <H2 class="text-center">{{ __('main.LoginMsg') }}</H2>
+                    <h2><a href="/Blog">Blog Posts</a></h2>
                 </div>
             </div>
         </div>
