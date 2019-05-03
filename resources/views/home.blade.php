@@ -1,5 +1,5 @@
 @extends('layouts.app')
-
+{{app()->setLocale('en')}}
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
@@ -14,7 +14,7 @@
                         </div>
                     @endif
 
-                    {{ trans('main.LoginMsg') }}
+                    {{ __('main.LoginMsg') }}
                 </div>
             </div>
         </div>
