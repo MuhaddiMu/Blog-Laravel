@@ -19,12 +19,14 @@ Route::get('/', 'PagesController@Index')->middleware('guest');
 
 Route::resource('Blog', 'BlogController');
 
+Route::POST('/Comment', 'CommentsController@NewComment');
+
 Route::group(array('prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => 'administrator'), function(){
 
     Route::resource('Categories', 'CategoriesController');
 
     Route::POST('Categories/create', 'CategoriesController@store');
-    
+        
     Route::resource('Posts', 'PostsController');
 
     Route::POST('Posts/create', 'PostsController@store');
