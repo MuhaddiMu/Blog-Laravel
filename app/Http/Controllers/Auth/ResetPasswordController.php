@@ -47,4 +47,11 @@ class ResetPasswordController extends Controller
     {
         $this->middleware('guest');
     }
+    public function rules()
+    {
+        return [
+          'password' => ['required', 'min:6', 'confirmed']
+    
+        ];
+    }
 }
