@@ -22,7 +22,12 @@
 					
 					@foreach ($Posts as $Post)
                     <h3><a href="/Blog/{{$Post->slug}}">{{$Post->title}}</a> <span class="badge badge-primary">{{$Post->category->name}}</span></h3>
-                    <a href="/admin/Posts/{{$Post->slug}}/edit"><h5>Edit Post</h5></a>
+                    @if (Auth::check())
+                        @role('Admin')
+                            <h3><a class="badge badge-success" href="/admin/Posts/{{$Post->slug}}/edit">Edit Post</a></h3>
+                        @endrole
+                    @endif
+                    
 						<p class="PostContent">{!! str_limit($Post->content, 300) !!}</p>
 						<hr>
 					@endforeach
