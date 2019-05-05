@@ -84,7 +84,7 @@ class PostsController extends Controller
     public function edit($id)
     {
         $Categories = Category::all();
-        $Post = Post::with('category')->whereId($id)->first();
+        $Post = Post::with('category')->whereSlug($id)->first();
 
         return view('Admin/Posts/Edit', compact('Post', 'Categories'));
     }
