@@ -98,14 +98,14 @@ class PostsController extends Controller
      */
     public function update(PostEditFormRequest $request, $id)
     {
-        $Post = Post::whereId($id)->first();
+        $Post = Post::whereSlug($id)->first();
         $Post->title  = $request->input('Title');
         $Post->content  = $request->input('Content');
         $Post->slug = Str::slug($request->input('Title'), '-');
         $Post->category_id = $request->input('Category');
         $Post->save();
 
-        return redirect(action([PostsController::class, 'edit'], $Post->id) )->with('status', 'Post has been updated');
+        return redirect()->back()->with('status', 'Post has been updated');
     }
 
     /**
