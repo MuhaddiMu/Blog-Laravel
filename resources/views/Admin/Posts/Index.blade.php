@@ -21,7 +21,8 @@
 					@endif
 					
 					@foreach ($Posts as $Post)
-					<h3><a href="/Blog/{{$Post->slug}}">{{$Post->title}}</a> <span class="badge badge-primary">{{$Post->category->name}}</span></h3>	
+                    <h3><a href="/Blog/{{$Post->slug}}">{{$Post->title}}</a> <span class="badge badge-primary">{{$Post->category->name}}</span></h3>
+                    <a href="/admin/Posts/{{$Post->slug}}/edit"><h5>Edit Post</h5></a>
 						<p class="PostContent">{!! str_limit($Post->content, 300) !!}</p>
 						<hr>
 					@endforeach
