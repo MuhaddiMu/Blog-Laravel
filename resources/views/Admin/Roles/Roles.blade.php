@@ -1,5 +1,5 @@
+@section('Title', 'All Roles')
 @extends('layouts.app')
-
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
@@ -10,7 +10,7 @@
                 <div class="card-body">
 
 					@if ($Roles->isEmpty())
-						<p>There are no Users</p>
+						<p>There are no roles</p>
 
 					@else
 

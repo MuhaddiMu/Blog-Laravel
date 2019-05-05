@@ -1,5 +1,5 @@
+@section('Title', 'Blog Posts')
 @extends('layouts.app')
-
 @section('content')
 
 <?php 
@@ -22,7 +22,7 @@
 					
 					@foreach ($Posts as $Post)
 					<h3><a href="/Blog/{{$Post->slug}}">{{$Post->title}}</a> <span class="badge badge-primary">{{$Post->category->name}}</span></h3>	
-						<p>{{str_limit($Post->content, 300)}}</p>
+						<p class="PostContent">{!! str_limit($Post->content, 300) !!}</p>
 						<hr>
 					@endforeach
 					
@@ -32,4 +32,12 @@
         </div>
     </div>
 </div>
+
+<script>
+    var PostContent = $(".PostContent").html();
+    PostContent = PostContent.replace(/\n/g,"<br>");
+    $(".PostContent").html(PostContent);
+</script>
+
+
 @endsection

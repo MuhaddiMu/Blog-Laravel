@@ -1,3 +1,4 @@
+@section('Title', 'Admin Panel')
 @extends('layouts.app')
 
 @section('content')

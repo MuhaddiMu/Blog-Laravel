@@ -1,5 +1,5 @@
+@section('Title', $Post->title)
 @extends('layouts.app')
-
 @section('content')
 
 <?php 
@@ -30,7 +30,7 @@
 
 					
 					<h3>{{$Post->title}}</a> <span class="badge badge-primary">{{$Post->category->name}}</span></h3>	
-                        <p>{{$Post->content}}</p>
+                        <p>{!! nl2br($Post->content) !!}</p>
                         
                         <hr>
 

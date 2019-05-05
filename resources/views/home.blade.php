@@ -1,3 +1,4 @@
+@section('Title', 'Dashboard')
 @extends('layouts.app')
 {{app()->setLocale('en')}}
 @section('content')
