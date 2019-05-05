@@ -28,7 +28,8 @@ class UsersController extends Controller
         $User = User::whereId($ID)->first();
         $User->name = $Request->input('Name');
         $User->email = $Request->input('Email');
-        $Password = $Request->input('Password');
+
+        $Password = $Request->input('password');
 
             if($Password != ''){
                 $User->password = Hash::make($Password);
